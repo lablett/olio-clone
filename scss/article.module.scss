@@ -1,21 +1,33 @@
 .container {
   display: flex;
   flex-direction: row;
+  flex-wrap: wrap;
   justify-content: space-between;
-  align-items: center;
-  height: 3em;
-  background: rgb(255,255,255);
-  background: linear-gradient(43deg, rgba(255,255,255,0) 0%, rgba(19,181,77,1) 44%, rgba(0,255,190,1) 100%);
+  align-items: space-between;
+  padding: 0 !important;
+  width: 100%;
+  height: 100%;
+  overflow: scroll;
+  border: black 1px;
+  background: rgb(248, 247, 239);
   box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);
   padding-left: 2em;
   padding-right: 2em;
 }
 
-.header {
-  background-color: green;
-  padding: 0.5em;
-  width: 10%;
+.card {
+  flex: 1;
+  justify-content: space-between;
+  height: 200px;
+  width: 300px;
+  margin: 1em 2em 1em 2em;
+  padding: 1em;
+  border-radius: 5px;
+  border: 2px solid darkcyan;
+  background: rgb(244, 248, 243);
+  box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);
 }
+
 
 .linksContainer {
   display:flex;

@@ -7,8 +7,10 @@ import Footer from '../components/common/Footer';
 
 const HomePageContainer =  () => {
   return (
-    <div className={main.homepage}>
-      <ContentContainer />
+    <div>
+      <div className={main.homepage}>
+       <ContentContainer />
+      </div>
       <Footer />
     </div>    
   )

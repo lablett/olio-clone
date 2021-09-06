@@ -7,9 +7,9 @@ export const GET_ARTICLES_ERROR = 'GET_ARTICLES_ERROR';
 export const getAllArticles = () => async (dispatch) => {
   dispatch({ type: GET_ARTICLES_START });
   try {
-    const articlesList = await fetchArticles();
+    const articleList = await fetchArticles();
 
-    dispatch({ type: GET_ARTICLES_SUCCESS, payload: { articlesList } });
+    dispatch({ type: GET_ARTICLES_SUCCESS, payload: { articleList } });
   } catch (error) {
     dispatch({ type: GET_ARTICLES_ERROR, payload: error });
   }

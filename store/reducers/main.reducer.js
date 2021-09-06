@@ -8,7 +8,7 @@ import {
 export const initialState = {
   isLoading: false,
   error: [],
-  articlesList: [],
+  articleList: [],
   currentView: 0,
 };
 
@@ -27,7 +27,7 @@ const mainReducer = (state = initialState, action) => {
       return {
         ...state,
         isLoading: false,
-        articlesList: action.payload.articlesList,
+        articleList: action.payload.articleList,
       };
     case GET_ARTICLES_ERROR:
       return {
