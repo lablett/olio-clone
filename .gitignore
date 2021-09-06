@@ -1,0 +1,13 @@
+# dependencies
+/node_modules
+
+# misc
+.env*
+
+# ide
+.vscode/
+.DS_Store
+
+# next.js
+/.next/
+/out/
