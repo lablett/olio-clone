@@ -2,7 +2,7 @@ import React from 'react';
 
 const ArticleMap = () => {
   return (
-    <h2>This is a map placeholder</h2>
+    <h1>This is a map placeholder</h1>
   );
 };
 
