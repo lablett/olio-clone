@@ -1,8 +1,12 @@
 import React from 'react';
 
-const ArticleListContainer = () => {
+const ArticleListContainer = ({ articlesList }) => {
   return (
-    <h2>This is an article list placeholder</h2>
+    <div>
+      <h2>This is an article list placeholder</h2>
+      <p>{`There are currently ${articlesList.length} articles`}</p>
+    </div>
+    
   );
 };
 

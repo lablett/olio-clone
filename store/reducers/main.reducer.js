@@ -27,7 +27,7 @@ const mainReducer = (state = initialState, action) => {
       return {
         ...state,
         isLoading: false,
-        articlesList: action.payload.articles,
+        articlesList: action.payload.articlesList,
       };
     case GET_ARTICLES_ERROR:
       return {
