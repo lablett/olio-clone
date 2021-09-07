@@ -26,7 +26,12 @@
   border: 2px solid darkcyan;
   background: rgb(244, 248, 243);
   box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);
+
+  &.viewed {
+    background: rgba(72, 255, 0, 0.397) !important;
+  }
 }
+
 
 
 .linksContainer {

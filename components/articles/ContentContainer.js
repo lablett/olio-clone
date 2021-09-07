@@ -19,7 +19,7 @@ const ContentContainer = ({
   viewedArticles,
   setArticleViewed
 }) => {
-  const [currentTab, setCurrentTab] = React.useState(1);
+  const [currentTab, setCurrentTab] = React.useState(0);
 
   const componentProps = { articleList, viewedArticles, setArticleViewed };
 

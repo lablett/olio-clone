@@ -2,17 +2,22 @@ import React from 'react';
 import { Container, Row, Col } from 'react-bootstrap';
 import article from '../../scss/article.module.scss';
 
-const ArticleListContainer = (props) => {
+const ArticleCard = (props) => {
   const {
-    title,
-    description,
-    photos,
-  } = props.article;
+    article: {
+      title,
+      description,
+      photos,
+    },
+    isViewed,
+  } = props;
 
   const photoUrl = photos[0].files.small;
 
+  const className = `${article.card} ${isViewed ? article.viewed : ''}`;
+
   return (
-    <Col md={2} className={article.card}>
+    <Col md={2} className={className}>
       <Row>
         <Col md={6}>
             <img src={photoUrl} alt="unplugged icon" />
@@ -38,4 +43,4 @@ const ArticleListContainer = (props) => {
   // );
 };
 
-export default ArticleListContainer;
+export default ArticleCard;
