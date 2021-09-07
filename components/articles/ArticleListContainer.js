@@ -2,18 +2,8 @@ import React from 'react';
 import ArticleCard from '../../components/articles/ArticleCard';
 
 
-const ArticleListContainer = ({ articleList, viewedArticles, setArticleViewed }) => {
+const ArticleListContainer = ({ articleList, viewedArticles, selectedArticle, onClickHandler }) => {
   let articleCardList;
-  const [selectedArticle, setSelectedArticle] = React.useState();
-  
-  const onClickHandler = (articleId) => {
-    if (articleId !== selectedArticle) {
-      setSelectedArticle(articleId);
-      setArticleViewed(articleId);
-    } else {
-      setSelectedArticle();
-    }
-  };
 
   if (articleList.length > 0) {
     articleCardList = articleList.map((article) => {

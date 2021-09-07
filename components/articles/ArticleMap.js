@@ -5,6 +5,8 @@ import L from 'leaflet';
 
 import 'leaflet/dist/leaflet.css'
 
+import article from '../../scss/article.module.scss';
+
 
 const Icon = L.Icon.extend({
   options: {}
@@ -19,7 +21,7 @@ const greenIcon = new Icon({
 });
 
 
-const ArticleMap = ({ articleList, viewedArticles, setArticleViewed }) => {
+const ArticleMap = ({ articleList, viewedArticles, onClickHandler, setCurrentTab }) => {
   let mapCentre;
 
   if (articleList.length > 0) {
@@ -48,12 +50,13 @@ const ArticleMap = ({ articleList, viewedArticles, setArticleViewed }) => {
         icon={isViewed ? greenIcon : redIcon}
         eventHandlers={{
         click: () => {
-          setArticleViewed(article.id);
+          onClickHandler(article.id);
         },
   }}
       >
-        <Popup>
+        <Popup className={article.card}>
           {article.title}
+          <button onClick={() => setCurrentTab(0)}>More Info</button>
         </Popup>
       </Marker>
     );

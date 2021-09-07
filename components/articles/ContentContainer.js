@@ -20,12 +20,22 @@ const ContentContainer = ({
   setArticleViewed
 }) => {
   const [currentTab, setCurrentTab] = React.useState(0);
+  const [selectedArticle, setSelectedArticle] = React.useState();
+  
+  const onClickHandler = (articleId) => {
+    if (articleId !== selectedArticle) {
+      setSelectedArticle(articleId);
+      setArticleViewed(articleId);
+    } else {
+      setSelectedArticle();
+    }
+  };
 
-  const componentProps = { articleList, viewedArticles, setArticleViewed };
+  const componentProps = { articleList, viewedArticles, selectedArticle, onClickHandler };
 
   const componentList = [
     { name: 'List', component: <ArticleListContainer { ...componentProps } />},
-    { name: 'Map', component: <ArticleMapContainer { ...componentProps } />},
+    { name: 'Map', component: <ArticleMapContainer { ...componentProps } setCurrentTab={setCurrentTab} />},
   ];
   
   const tabItems = componentList.map((component, index) => {
