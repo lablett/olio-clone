@@ -1,15 +1,12 @@
 .container {
   display: flex;
   flex-direction: column;
-  justify-content: flex-start;
+  justify-content: center;
   align-items: center;
   padding: 0 !important;
   width: 75%;
   height: 75%;
   border: black 1px;
   background: rgb(248, 247, 239);
-  // background: linear-gradient(43deg, rgba(255,255,255,0) 0%, rgba(19,181,77,1) 44%, rgba(0,255,190,1) 100%);
   box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);
-  padding-left: 2em;
-  padding-right: 2em;
 }

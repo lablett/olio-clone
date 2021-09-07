@@ -1,23 +1,26 @@
 import React from 'react';
-import { Container, Row, Col } from 'react-bootstrap';
+import { Row, Col } from 'react-bootstrap';
 import article from '../../scss/article.module.scss';
 
 const ArticleCard = (props) => {
   const {
     article: {
+      id,
       title,
       description,
       photos,
     },
     isViewed,
+    isSelected,
+    setSelectedArticle,
   } = props;
 
   const photoUrl = photos[0].files.small;
 
-  const className = `${article.card} ${isViewed ? article.viewed : ''}`;
+  const className = `${article.card} ${isViewed ? article.viewed : ''} ${isSelected ? article.expanded : ''}`;
 
   return (
-    <Col md={2} className={className}>
+    <Col className={className} onClick={() => setSelectedArticle(id)}>
       <Row>
         <Col md={6}>
             <img src={photoUrl} alt="unplugged icon" />
