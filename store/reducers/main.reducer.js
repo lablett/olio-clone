@@ -3,6 +3,7 @@ import {
   GET_ARTICLES_START,
   GET_ARTICLES_SUCCESS,
   GET_ARTICLES_ERROR,
+  SET_ARTICLE_VIEWED,
 } from '../actions/main.actions';
 
 export const initialState = {
@@ -10,6 +11,7 @@ export const initialState = {
   error: [],
   articleList: [],
   currentView: 0,
+  viewedArticles: [],
 };
 
 const mainReducer = (state = initialState, action) => {
@@ -35,6 +37,11 @@ const mainReducer = (state = initialState, action) => {
         isLoading: false,
         hasError: true,
       };
+    case SET_ARTICLE_VIEWED:
+      return {
+        ...state,
+        viewedArticles: action.payload.newState,
+      }
     default:
       return state;
   }

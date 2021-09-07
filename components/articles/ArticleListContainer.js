@@ -1,8 +1,6 @@
 import React from 'react';
 import ArticleCard from '../../components/articles/ArticleCard';
 
-import { Row } from 'react-bootstrap';
-
 const ArticleListContainer = ({ articleList }) => {
   let articleCardList;
 

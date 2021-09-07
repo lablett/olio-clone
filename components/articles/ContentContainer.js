@@ -5,20 +5,27 @@ import { bindActionCreators } from 'redux';
 
 import TabItem from './tabs/TabItem';
 import ArticleListContainer from '../articles/ArticleListContainer';
-import ArticleMap from '../articles/ArticleMap';
-import { getAllArticles } from '../../store/actions/main.actions';
+import ArticleMapContainer from './ArticleMapContainer';
+import { getAllArticles, setArticleViewed } from '../../store/actions/main.actions';
 
 import article from '../../scss/article.module.scss';
 import content from '../../scss/content.module.scss';
 import tab from '../../scss/tab.module.scss';
 
 
-const ContentContainer = ({ getAllArticles, articleList }) => {
+const ContentContainer = ({
+  getAllArticles,
+  articleList,
+  viewedArticles,
+  setArticleViewed
+}) => {
   const [currentTab, setCurrentTab] = React.useState(1);
 
+  const componentProps = { articleList, viewedArticles, setArticleViewed };
+
   const componentList = [
-    { name: 'List', component: <ArticleListContainer articleList={articleList}/>},
-    { name: 'Map', component: <ArticleMap articleList={articleList}/>},
+    { name: 'List', component: <ArticleListContainer { ...componentProps } />},
+    { name: 'Map', component: <ArticleMapContainer { ...componentProps } />},
   ];
   
   const tabItems = componentList.map((component, index) => {
@@ -44,16 +51,19 @@ const ContentContainer = ({ getAllArticles, articleList }) => {
 export const mapStateToProps = (state) => {
   return {
     articleList: state.main.articleList,
+    viewedArticles: state.main.viewedArticles,
   };
 };
 
 const mapDispatchToProps = (dispatch) => bindActionCreators({
   getAllArticles,
+  setArticleViewed,
 }, dispatch);
 
 ContentContainer.propTypes = {
   getAllArticles: PropTypes.func.isRequired,
   articleList: PropTypes.array.isRequired,
+  setArticleViewed: PropTypes.func.isRequired,
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(ContentContainer);

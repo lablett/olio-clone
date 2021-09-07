@@ -14,3 +14,13 @@ export const getAllArticles = () => async (dispatch) => {
     dispatch({ type: GET_ARTICLES_ERROR, payload: error });
   }
 };
+
+export const SET_ARTICLE_VIEWED = 'SET_ARTICLE_VIEWED';
+export const setArticleViewed = (articleId) => async (dispatch, getState) => {
+  const currentState = getState();
+  const viewedArticles = currentState.main.viewedArticles;
+  const newState = [...viewedArticles, articleId];
+
+  dispatch({ type: SET_ARTICLE_VIEWED, payload: { newState } });
+};
+
