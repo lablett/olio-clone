@@ -26,6 +26,8 @@ const ContentContainer = ({
     if (articleId !== selectedArticle) {
       setSelectedArticle(articleId);
       setArticleViewed(articleId);
+      const el = document.getElementById(articleId)
+      el.scrollIntoView({ behavior: 'smooth' })
     } else {
       setSelectedArticle();
     }

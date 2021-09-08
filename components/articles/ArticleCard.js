@@ -1,5 +1,5 @@
 import React from 'react';
-import { Row, Col } from 'react-bootstrap';
+import { Row } from 'react-bootstrap';
 import article from '../../scss/article.module.scss';
 
 const ArticleCard = (props) => {
@@ -9,41 +9,39 @@ const ArticleCard = (props) => {
       title,
       description,
       photos,
+      location,
+      collection_notes,
+      expiry,
     },
     isViewed,
     isSelected,
     setSelectedArticle,
   } = props;
 
-  const photoUrl = photos[0].files.small;
+  const photoUrl = photos[0].files.medium;
 
   const className = `${article.card} ${isViewed ? article.viewed : ''} ${isSelected ? article.expanded : ''}`;
 
-  return (
-    <Col className={className} onClick={() => setSelectedArticle(id)}>
-      <Row>
-        <Col md={6}>
-            <img src={photoUrl} alt="unplugged icon" />
-        </Col>
-        <Col md={6}>
-          <h3>{title}</h3>
-          <p>{description}</p>
-        </Col>
-      </Row>
-    </Col>
-  );
+  const expandedContent = (
+    <div className={article.expandedContent}>
+      <p>{`Location: ${location.town}`}</p>
+      <p>{`Collection notes: ${collection_notes}`}</p>
+      <p>{`Expiry: ${new Date(expiry).toLocaleDateString('en-GB')}`}</p>
+    </div>
+  )
 
-  // return (
-    // <div className={article.card}>
-    //   <div className={`${article.column} left`}>
-    //     <img src={photoUrl} alt="unplugged icon" />
-    //   </div>
-    //   <div className={`${article.column} right`}>
-    //     <h3>{title}</h3>
-    //     <p>{description}</p>
-    //   </div>
-    // </div>
-  // );
+  return (
+    <div className={className} onClick={() => setSelectedArticle(id)}>
+      <div className={article.columnLeft}>
+        <img src={photoUrl} alt="unplugged icon" />
+      </div>
+      <div className={article.columnRight}>
+        <h3>{title}</h3>
+        <p>{description}</p>
+      </div>
+      {isSelected ? expandedContent : <span />}
+    </div>
+  );
 };
 
 export default ArticleCard;
