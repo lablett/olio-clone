@@ -1,43 +1,48 @@
 import React from 'react';
-import LoadingAnimation from '../common/LoadingAnimation';
-import { MapContainer, Marker, Popup, TileLayer } from 'react-leaflet'
+import PropTypes from 'prop-types';
+// eslint-disable-next-line object-curly-newline
+import { MapContainer, Marker, Popup, TileLayer } from 'react-leaflet';
 import L from 'leaflet';
+import LoadingAnimation from '../common/LoadingAnimation';
 
-import 'leaflet/dist/leaflet.css'
-
-import article from '../../scss/article.module.scss';
+import 'leaflet/dist/leaflet.css';
 
 
 const Icon = L.Icon.extend({
-  options: {}
+  options: {},
 });
 
 const redIcon = new Icon({
-  iconUrl: 'http://chart.apis.google.com/chart?chst=d_map_pin_letter&chld=%E2%80%A2|FE7569'
+  iconUrl: 'http://chart.apis.google.com/chart?chst=d_map_pin_letter&chld=%E2%80%A2|FE7569',
 });
 
 const greenIcon = new Icon({
-  iconUrl: 'http://chart.apis.google.com/chart?chst=d_map_pin_letter&chld=%E2%80%A2|0F9D58'
+  iconUrl: 'http://chart.apis.google.com/chart?chst=d_map_pin_letter&chld=%E2%80%A2|0F9D58',
 });
 
 
-const ArticleMap = ({ articleList, viewedArticles, onClickHandler, setCurrentTab }) => {
+const ArticleMap = ({
+  articleList,
+  viewedArticles,
+  onClickHandler,
+  setCurrentTab,
+}) => {
   let mapCentre;
 
   if (articleList.length > 0) {
     const sumArray = articleList.reduce((acc, curr) => {
       const loc = curr.user.location;
-      acc[0] = acc[0] + loc.latitude;
-      acc[1] = acc[1] + loc.longitude;
+      acc[0] += loc.latitude;
+      acc[1] += loc.longitude;
       return acc;
-    }, [0,0]);
+    }, [0, 0]);
 
-    mapCentre = [sumArray[0]/articleList.length, sumArray[1]/articleList.length];
-  };
+    mapCentre = [sumArray[0] / articleList.length, sumArray[1] / articleList.length];
+  }
 
   if (!articleList || !mapCentre) {
-    return <LoadingAnimation />
-  };
+    return <LoadingAnimation />;
+  }
 
   const markerList = articleList.map((article) => {
     const location = article.user.location;
@@ -46,31 +51,38 @@ const ArticleMap = ({ articleList, viewedArticles, onClickHandler, setCurrentTab
     return (
       <Marker
         key={article.id}
-        position={[location['latitude'], location['longitude']]}
+        position={[location.latitude, location.longitude]}
         icon={isViewed ? greenIcon : redIcon}
         eventHandlers={{
-        click: () => {
-          onClickHandler(article.id);
-        },
-  }}
+          click: () => {
+            onClickHandler(article.id);
+          },
+        }}
       >
         <Popup className={article.card}>
           {article.title}
-          <button onClick={() => setCurrentTab(0)}>More Info</button>
+          <button type="button" onClick={() => setCurrentTab(0)}>More Info</button>
         </Popup>
       </Marker>
     );
   });
-  
+
   return (
-    <MapContainer center={mapCentre} zoom={11} scrollWheelZoom={false} style={{height: "100%", width: "100%"}}>
+    <MapContainer center={mapCentre} zoom={11} scrollWheelZoom={false} style={{ height: '100%', width: '100%' }}>
       <TileLayer
         attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
         url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
       />
       {markerList}
     </MapContainer>
-  )
-}
+  );
+};
+
+ArticleMap.propTypes = {
+  articleList: PropTypes.array.isRequired,
+  viewedArticles: PropTypes.array.isRequired,
+  onClickHandler: PropTypes.bool.isRequired,
+  setCurrentTab: PropTypes.func.isRequired,
+};
 
 export default ArticleMap;

@@ -2,7 +2,7 @@ import fetch from 'isomorphic-unfetch';
 
 export default async function fetchArticles(req, res) {
   try {
-    const API_URL = 'https://s3-eu-west-1.amazonaws.com/olio-staging-images/developer/test-articles-v4.json';
+    const API_URL = process.env.ARTICLE_API_URL;
 
     const response = await fetch(API_URL);
 

@@ -1,0 +1,26 @@
+{
+	"extends": "airbnb",
+	"parser": "babel-eslint",
+	"rules": {
+		"max-len": ["error", {
+			"code": 140,
+   			"tabWidth": 2
+		}],
+		"prefer-destructuring": "off",
+		"react/jsx-filename-extension": "off",
+		"react/forbid-prop-types": ["error", { "forbid": ["any"] }]
+	},
+  "overrides": [
+		{
+			"files": ["components/**/*.js", "helpers/**/*.js", "pages/**/*.js"],
+			"rules": {
+				"arrow-body-style": "off",
+        "react/jsx-props-no-spreading": "off",
+        "no-multiple-empty-lines": "off"
+			}
+		}
+  ],
+	"env": {
+		"jest": true
+	}
+}

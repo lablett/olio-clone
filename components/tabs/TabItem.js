@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import tab from '../../../scss/tab.module.scss';
+import tab from '../../scss/tab.module.scss';
 
 const TabItem = ({ name, active, click }) => {
   return (

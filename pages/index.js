@@ -1,11 +1,13 @@
+import React from 'react';
 import PropTypes from 'prop-types';
 import HomePageContainer from '../components/HomePageContainer';
 import LoadingAnimation from '../components/common/LoadingAnimation';
 import Error from '../components/common/Error';
 
+
 const Index = ({ isLoading, error }) => {
   if (isLoading) {
-    return <LoadingAnimation />
+    return <LoadingAnimation />;
   }
 
   if (error) {
@@ -13,17 +15,17 @@ const Index = ({ isLoading, error }) => {
       <Error />
     );
   }
-  
-
-  return <HomePageContainer />
-}
+  return <HomePageContainer />;
+};
 
 Index.defaultProps = {
   isLoading: false,
+  error: false,
 };
 
 Index.propTypes = {
-  loading: PropTypes.bool,
+  isLoading: PropTypes.bool,
+  error: PropTypes.bool,
 };
 
 export default Index;

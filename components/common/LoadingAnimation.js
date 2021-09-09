@@ -1,9 +1,9 @@
 import React from 'react';
-import RingLoader from "react-spinners/RingLoader";
+import RingLoader from 'react-spinners/RingLoader';
 
 const LoadingAnimation = () => {
   return (
-    <RingLoader size={150}/>
+    <RingLoader size={150} color="#008b8b" />
   );
 };
 

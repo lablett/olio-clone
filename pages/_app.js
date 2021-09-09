@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import App from 'next/app';
 import Head from 'next/head';
 import wrapper from '../store/store';
@@ -18,7 +18,6 @@ class OlioClone extends App {
     };
   }
 
-
   componentDidMount() {
     if (!this.state.isLoading) {
       return;
@@ -28,14 +27,13 @@ class OlioClone extends App {
       this.setState({ isLoading: false });
     }, 500);
   }
-  
+
   static getDerivedStateFromError() {
     return { hasError: true };
   }
 
   componentDidCatch(error, errorInfo) {
-    console.log(error);
-    this.setState({ error: { errorInfo }});
+    this.setState({ error: { errorInfo } });
   }
 
   render() {
@@ -45,10 +43,8 @@ class OlioClone extends App {
     return (
       <div>
         <Head>
-            <meta name="robots" content="noindex, nofollow" />
-            <meta property="og:title" content="Olio Clone | Fight waste!" />
-            <meta property="og:description" content="Easily find out what fruit and veg is currently in season." />
-            <title>Olio Clone | Fight waste!</title>
+          <title>Olio Clone | Fight waste!</title>
+          <meta property="og:title" content="Olio Clone | Fight waste!" />
         </Head>
         {
             hasError ? (
@@ -58,10 +54,8 @@ class OlioClone extends App {
             )
           }
       </div>
-        
     );
   }
-
 }
 
 export default wrapper.withRedux(OlioClone);
