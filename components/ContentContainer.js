@@ -81,7 +81,7 @@ ContentContainer.propTypes = {
   getAllArticles: PropTypes.func.isRequired,
   articleList: PropTypes.array.isRequired,
   setArticleViewed: PropTypes.func.isRequired,
-  viewedArticles: PropTypes.bool.isRequired,
+  viewedArticles: PropTypes.array.isRequired,
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(ContentContainer);

@@ -35,10 +35,14 @@ const ArticleListContainer = ({
   );
 };
 
+ArticleListContainer.defaultProps = {
+  selectedArticle: null,
+};
+
 ArticleListContainer.propTypes = {
   articleList: PropTypes.array.isRequired,
   viewedArticles: PropTypes.array.isRequired,
-  selectedArticle: PropTypes.bool.isRequired,
+  selectedArticle: PropTypes.number,
   onClickHandler: PropTypes.func.isRequired,
 };
 

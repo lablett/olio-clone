@@ -16,7 +16,8 @@
 			"rules": {
 				"arrow-body-style": "off",
         "react/jsx-props-no-spreading": "off",
-        "no-multiple-empty-lines": "off"
+        "no-multiple-empty-lines": "off",
+        "react/react-in-jsx-scope": "off"
 			}
 		}
   ],

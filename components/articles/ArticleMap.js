@@ -81,7 +81,7 @@ const ArticleMap = ({
 ArticleMap.propTypes = {
   articleList: PropTypes.array.isRequired,
   viewedArticles: PropTypes.array.isRequired,
-  onClickHandler: PropTypes.bool.isRequired,
+  onClickHandler: PropTypes.func.isRequired,
   setCurrentTab: PropTypes.func.isRequired,
 };
 
