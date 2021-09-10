@@ -41,7 +41,7 @@ const mainReducer = (state = initialState, action) => {
       return {
         ...state,
         viewedArticles: action.payload.newState,
-      }
+      };
     default:
       return state;
   }
