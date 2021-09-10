@@ -17,7 +17,7 @@ const redIcon = new Icon({
 });
 
 const greenIcon = new Icon({
-  iconUrl: 'http://chart.apis.google.com/chart?chst=d_map_pin_letter&chld=%E2%80%A2|0F9D58',
+  iconUrl: 'http://chart.apis.google.com/chart?chst=d_map_pin_letter&chld=%E2%80%A2|008b8b',
 });
 
 
