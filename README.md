@@ -17,14 +17,14 @@
 
 ### Prerequisites
 
-To run this code you will require [ Node.js](https://nodejs.org/en/) and [ npm](https://www.npmjs.com/).
+To run this code you will require [Node.js](https://nodejs.org/en/) and [npm](https://www.npmjs.com/).
 
 
 ### Project Setup
 
 1. Clone this git repository using your preferred method and then navigate to the project folder (olio-clone) using your terminal.
 
-2. In the project's root directory create a .env file and add `ARTICLE_API_URL=` followed by the URL that I shared with you separately.
+2. In the project's root directory create a .env file and add `ARTICLE_API_URL=` followed by the URL that I have shared with you separately.  You will also need to add `ENV_NAME=development`.
 
 3. Install the required dependencies by running `npm install`.
 
@@ -35,8 +35,8 @@ To run this code you will require [ Node.js](https://nodejs.org/en/) and [ npm](
 
 ### Running The Application
 
-1. In your browser run `npm run dev`, the application should compile with no errors.
-2. Navigate to [http://localhost:3000](http://localhost:3000) and explore the items currently available!
+1. In your terminal run `npm run dev`, the application should compile with no errors.  If you do come across errors (particularly Windows users), please run `npm rebuild` and try again. 
+3. Navigate to [http://localhost:3000](http://localhost:3000) and explore the items currently available!
 
 
 ### Notes:
@@ -45,3 +45,4 @@ To run this code you will require [ Node.js](https://nodejs.org/en/) and [ npm](
 	* End to end tests.
 	* Proper styling of components following actual designs.
 	* Implementation of a global stylesheet and the use of additional media queries for a more responsive user experience.
+	* Proper implementation of global loading and error states.
