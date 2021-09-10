@@ -33,7 +33,7 @@
   &.viewed {
     background: 
    linear-gradient(to top right,transparent 50%,darkcyan 0) top right/40px 40px no-repeat,
-   white; 
+   rgb(244, 248, 243); 
     overflow: hidden;
   }
 
@@ -43,6 +43,7 @@
 
   &.expanded {
     height: 400px;
+    background: white;
 
     @media (max-width: 1325px) {
       height: auto;
