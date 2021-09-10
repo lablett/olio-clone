@@ -23,4 +23,3 @@ export const setArticleViewed = (articleId) => async (dispatch, getState) => {
 
   dispatch({ type: SET_ARTICLE_VIEWED, payload: { newState } });
 };
-
